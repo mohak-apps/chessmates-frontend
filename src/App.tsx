@@ -3,6 +3,7 @@ import { Game } from "./screens/Game";
 import { Landing } from "./screens/Landing";
 
 import "./App.css";
+import { Login } from "./screens/Login";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
     <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/game" element={<Game />} />
       </Routes>
     </BrowserRouter>
