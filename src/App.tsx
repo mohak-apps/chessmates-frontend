@@ -7,7 +7,7 @@ import { Login } from "./screens/Login";
 
 function App() {
   return (
-    <div className="h-screen bg-gray-900">
+    <div className="h-screen bg-chessBackground">
     <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<Landing />} />

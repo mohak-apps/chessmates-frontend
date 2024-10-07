@@ -55,7 +55,7 @@ export const ChessBoard = ({
                     }
                   }}
                   className={`w-16 h-16 ${
-                    (i + j) % 2 === 0 ? "bg-green-500" : "bg-yellow-50"
+                    (i + j) % 2 === 0 ? "bg-teal" : "bg-parchment"
                   }`}
                 >
                   <div className="w-full justify-center flex h-full">

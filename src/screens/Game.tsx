@@ -1,6 +1,6 @@
 import { ChessBoard } from "../components/ChessBoard";
 import { useSocket } from "../hooks/useSocket";
-import { Button } from "../components/Button";
+import { ButtonUI } from "../components/Button";
 import { useEffect, useState } from "react";
 import { Chess } from "chess.js";
 
@@ -67,12 +67,12 @@ export const Game = () => {
             />
           </div>
           <div className="col-span-2 bg-gray-800 w-full justify-center flex">
-            <div className="pt-5 mr-10">
+            <div className="pt-5">
               {pending ? (
-                <img className="max-w-40" src="/public/connecting.gif" />
+                <progress className="progress w-56"></progress>
               ) : (
                 !started && (
-                  <Button
+                  <ButtonUI
                     onClick={() => {
                       socket.send(
                         JSON.stringify({
@@ -82,7 +82,7 @@ export const Game = () => {
                     }}
                   >
                     Play
-                  </Button>
+                  </ButtonUI>
                 )
               )}
             </div>

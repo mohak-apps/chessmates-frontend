@@ -1,4 +1,6 @@
-export const Button = ({
+import { Button } from "@/components/ui/button";
+
+export const ButtonUI = ({
   onClick,
   children,
 }: {
@@ -6,11 +8,11 @@ export const Button = ({
   children: React.ReactNode;
 }) => {
   return (
-    <button
+    <Button
       onClick={onClick}
-      className="px-8 py-4 text-2xl bg-green-500 hover:bg-blue-700 text-white font-bold rounded"
+      className="px-8 py-4 bg-buttonBackground hover:bg-buttonHover text-buttonText font-bold rounded"
     >
       {children}
-    </button>
+    </Button>
   );
 };
