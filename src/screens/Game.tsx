@@ -10,7 +10,7 @@ export const MOVE = "move";
 export const GAME_OVER = "game_over";
 export const PENDING = "pending";
 
-export const Game = () => {
+const Game = () => {
   const socket = useSocket();
   const [chess] = useState(new Chess());
   const [pending, setPending] = useState(false);
@@ -55,7 +55,7 @@ export const Game = () => {
 
   if (!socket) return <div>Connecting...</div>;
   return (
-    <div className="justify-center flex">
+    <div className="flex flex-grow">
       <div className="pt-8 max-w-screen-lg w-full">
         <div className="grid grid-cols-6 gap-4 w-full">
           <div className="col-span-4 w-full flex justify-center">
@@ -66,13 +66,14 @@ export const Game = () => {
               setBoard={setBoard}
             />
           </div>
-          <div className="col-span-2 bg-gray-800 w-full justify-center flex">
-            <div className="pt-5">
+          <div className="col-span-2 bg-sidePanel flex shadow-2xl rounded-lg flex-col items-center p-7">
+            <div className="">
               {pending ? (
                 <progress className="progress w-56"></progress>
               ) : (
                 !started && (
                   <ButtonUI
+                    className="w-24 mb-7"
                     onClick={() => {
                       socket.send(
                         JSON.stringify({
@@ -86,9 +87,14 @@ export const Game = () => {
                 )
               )}
             </div>
+            <div className="bg-sidePanelShadow shadow-inner justify-center flex rounded-lg  w-full h-full">
+              asd
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+export default Game;

@@ -1,27 +1,48 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
+
 export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['MouldyCheeseRegular', ...defaultTheme.fontFamily.sans],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        primaryBackground: "#0A1828",
-        secondaryBackground: "#1E293B",
-        primaryText: "#F4E9CD",
-        hoverText: "#a59d88",
-        highlights: "#BFA181",
-        buttonBackground: "#800020",
-        buttonText: "FFFFF0",
-        buttonHover: "#9A2A2A",
+        primaryBackground: "#6f8e99",
+        secondaryBackground: "#75846a ",
+        header: "#ae6667",
+        footer: "#ae6667",
+        highlights: "#f9af42 ",
+        //chessboard
+        blackSquare: "#f8f7e5 ",
+        whiteSquare: "#AAB396 ",
+        solidBlack: "#1D1D1D",
+        thickBorder: " #5a6f76",
+        bordersDividers: "#75846a ",
+        //menu items
+        sidePanel: "#75846a",
+        sidePanelShadow: "#626d5a",
+        //text
+        primaryText: "#2E1E0F",
+        hoverText: "#A59d88",
+
+        //buttons
+        buttonBackground: "#f9af42",
+        buttonText: "596f61 ",
+        buttonHover: "#9C8465",
 
         defaultText: "#F4E9CD",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

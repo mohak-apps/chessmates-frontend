@@ -20,64 +20,67 @@ export const ChessBoard = ({
   const [from, setFrom] = useState<Square | null>(null);
 
   return (
-    <div className="text-white-200 ">
-      {board.map((row, i) => {
-        return (
-          <div key={i} className="flex">
-            {row.map((square, j) => {
-              const squareRepresentation = (String.fromCharCode(97 + (j % 8)) +
-                (8 - i)) as Square;
-
-              return (
-                <div
-                  key={j}
-                  onClick={() => {
-                    if (!from) {
-                      setFrom(squareRepresentation ?? null);
-                    } else {
-                      socket.send(
-                        JSON.stringify({
-                          type: MOVE,
-                          payload: { from: from, to: squareRepresentation },
-                        })
-                      );
-                      try {
-                        chess.move({
-                          from: from,
-                          to: squareRepresentation,
-                        });
-                        setFrom(null);
-                        setBoard(chess.board());
-                      } catch (err) {
-                        console.log(err);
-                        setFrom(null);
+    <div className="p-10 bg-thickBorder rounded-md shadow-2xl">
+      <div className="text-white-200 border-4 border-bordersDividers rounded-md shadow-2xl">
+        {board.map((row, i) => {
+          return (
+            <div key={i} className="flex">
+              {row.map((square, j) => {
+                const squareRepresentation = (String.fromCharCode(
+                  97 + (j % 8)
+                ) +
+                  (8 - i)) as Square;
+                return (
+                  <div
+                    key={j}
+                    onClick={() => {
+                      if (!from) {
+                        setFrom(squareRepresentation ?? null);
+                      } else {
+                        socket.send(
+                          JSON.stringify({
+                            type: MOVE,
+                            payload: { from: from, to: squareRepresentation },
+                          })
+                        );
+                        try {
+                          chess.move({
+                            from: from,
+                            to: squareRepresentation,
+                          });
+                          setFrom(null);
+                          setBoard(chess.board());
+                        } catch (err) {
+                          console.log(err);
+                          setFrom(null);
+                        }
                       }
-                    }
-                  }}
-                  className={`w-16 h-16 ${
-                    (i + j) % 2 === 0 ? "bg-teal" : "bg-parchment"
-                  }`}
-                >
-                  <div className="w-full justify-center flex h-full">
-                    <div className="h-full justify-center flex flex-col">
-                      {square ? (
-                        <img
-                          className="w-10"
-                          src={
-                            square.color === "b"
-                              ? `/src/assets/${square.type}.png`
-                              : `/src/assets/${square.type.toUpperCase()}_.png`
-                          }
-                        />
-                      ) : null}
+                    }}
+                    className={`w-16 h-16 ${
+                      (i + j) % 2 === 0 ? "bg-blackSquare" : "bg-whiteSquare"
+                    }`}
+                  >
+                    <div className="w-full justify-center flex h-full">
+                      <div className="h-full justify-center flex flex-col">
+                        {square ? (
+                          <img
+                            className="w-10"
+                            src={
+                              square.color === "b"
+                                ? `/src/assets/${square.type}.png`
+                                : `/src/assets/${square.type.toUpperCase()}_.png`
+                            }
+                          />
+                        ) : null}
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
