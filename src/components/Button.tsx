@@ -4,15 +4,18 @@ export const ButtonUI = ({
   onClick,
   children,
   className,
+  disabled,
 }: {
   onClick: () => void;
   children: React.ReactNode;
   className?: string;
+  disabled?: boolean
 }) => {
   return (
     <Button
       onClick={onClick}
-      className={`px-8 py-4 bg-buttonBackground hover:bg-buttonHover text-buttonText rounded-lg w-full ${className}`}
+      disabled={disabled}
+      className={`px-8 py-4 bg-buttonBackground hover:bg-buttonHover text-buttonText rounded-lg w-full select-none ${className}`}
     >
       {children}
     </Button>

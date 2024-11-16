@@ -4,7 +4,7 @@ import Landing from "./screens/Landing";
 import Game from "./screens/Game";
 import ErrorPage from "./screens/ErrorPage";
 import RootPage from "./screens/RootPage";
-import ProtectedRoutes from "./utils/protectedRoutes";
+import ProtectedRoutes from "./utils/ProtectedRoutes";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./App.css";
 import Register from "./screens/Register";

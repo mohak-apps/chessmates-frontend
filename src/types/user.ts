@@ -1,5 +1,18 @@
 export type GameUserStatus = "online" | "offline" | "in-game" | "away";
 
+export enum GameResult {
+  Win = "win",
+  Loss = "loss",
+  Draw = "draw",
+  InProgress = "in progress",
+  Loading = "loading",
+}
+
+export enum GameType {
+  Practice = "practice",
+  Ranked = "ranked",
+}
+
 // only data required to be shown on front end
 export interface User {
   _id: string;
@@ -38,6 +51,15 @@ export interface Achievement {
   name: string;
   description: string;
   unlockedAt: Date;
+}
+
+export interface GameSession {
+  id: string;
+  players: GameUser[];
+  startTime: Date;
+  endTime?: Date;
+  result?: GameResult;
+  gameType: GameType;
 }
 
 export interface GameSession {

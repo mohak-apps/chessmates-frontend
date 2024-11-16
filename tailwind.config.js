@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
-
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
   darkMode: ["class"],
@@ -8,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['MouldyCheeseRegular', ...defaultTheme.fontFamily.sans],
+        sans: ["MouldyCheeseRegular", ...defaultTheme.fontFamily.sans],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -18,12 +17,13 @@ export default {
       colors: {
         primaryBackground: "#6f8e99",
         secondaryBackground: "#75846a ",
+        secondaryBackgroundHover: "#535c4c ",
         header: "#ae6667",
         footer: "#ae6667",
         highlights: "#f9af42 ",
         //chessboard
-        blackSquare: "#f8f7e5 ",
-        whiteSquare: "#AAB396 ",
+        blackSquare: "#AAB396 ",
+        whiteSquare: "#f8f7e5 ",
         solidBlack: "#1D1D1D",
         thickBorder: " #5a6f76",
         bordersDividers: "#75846a ",
@@ -36,8 +36,12 @@ export default {
 
         //buttons
         buttonBackground: "#f9af42",
-        buttonText: "596f61 ",
+        buttonText: "#000000",
         buttonHover: "#9C8465",
+
+        buttonBackground2: "#f8f7e5",
+        buttonText2: "#000000",
+        buttonHover2: "#c3c2b4",
 
         defaultText: "#F4E9CD",
         background: "hsl(var(--background))",
